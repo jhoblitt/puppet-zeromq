@@ -29,6 +29,17 @@ describe 'zeromq', :type => :class do
             to raise_error(Puppet::Error, /API version 4 is not supported on RedHat 6/)
         end
       end
+
+      # we only need to check the version param validation on a single OS
+      context 'version => false' do
+        let(:params) {{ :version => false }}
+
+        it 'should fail' do
+          expect { should }.
+            to raise_error(Puppet::Error, /is not a string/)
+        end
+      end
+
     end # el6
 
     context 'el5' do

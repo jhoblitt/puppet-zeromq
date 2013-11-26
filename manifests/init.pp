@@ -12,10 +12,11 @@
 class zeromq(
   $version = $zeromq::params::default_version
 ) inherits zeromq::params {
+  validate_string($version)
 
   $zeromq_package         = getvar("zeromq::params::zeromq${version}_package")
   $zeromq_package_version = getvar("zeromq::params::zeromq${version}_package_version")
-  $os_id          = $zeromq::params::os_id
+  $os_id                  = $zeromq::params::os_id
 
   if $zeromq_package == undef {
     fail("zeromq API version ${version} is not supported on ${os_id}")
