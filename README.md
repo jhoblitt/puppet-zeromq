@@ -24,11 +24,11 @@ Manages the `zeromq` package(s)
 Description
 -----------
 
-This module will install the [`zeromq`](http://zeromq.org/) library and header
-packages.  Only operating systems that have packages for at least the `zermq`
-version 3+ API are supported. Version 3 packages will be installed by default
-but if your operating system has version 4 package(s), they may optionally be
-specified.
+This module will install the [`zeromq`](http://zeromq.org/), also commonly
+called `zmq` or `0mq`, library and header packages.  Only operating systems
+that have packages for at least the `zeromq` version 3+ API are supported.
+Version 3 packages will be installed by default but if your operating system
+has version 4 package(s), they may optionally be specified.
 
 
 Usage
