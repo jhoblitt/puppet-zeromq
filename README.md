@@ -56,6 +56,24 @@ class { 'zeromq':
 }
 ```
 
+### `$osfamily == RedHat` considerations
+
+The el6.x packages are provided by EPEL6 but this module does not configure not
+have a dependency on a module that will configure a EPEL6 yumrepo.  This is
+avoid potentially conflicting with a local yumrepo configuration, which is
+fairly common.
+
+If you do not have a local site setup, the [`stahnma/epel`](https://forge.puppetlabs.com/stahnma/epel) module is a good option for configuring EPEL6.
+
+You will likely want to declare resource ordering in your catalog to ensure
+that the EPEL6 repo is configured *before* this module in the catalog. Eg:
+
+```puppet
+Class['epel'] -> Class['zeromq']
+include zeromq
+```
+
+
 
 Limitations
 -----------
