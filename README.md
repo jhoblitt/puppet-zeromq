@@ -8,7 +8,7 @@ Puppet zeromq Module
 1. [Overview](#overview)
 2. [Description](#description)
 3. [Usage](#usage)
-    *[`$osfamily == RedHat` considerations](#osfamily--redhat-considerations)
+    * [`$osfamily == RedHat` considerations](#osfamily--redhat-considerations)
 4. [Limitations](#limitations)
 5. [Versioning](#versioning)
 6. [Support](#support)
