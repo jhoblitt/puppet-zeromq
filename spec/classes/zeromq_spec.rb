@@ -26,7 +26,7 @@ describe 'zeromq', :type => :class do
 
         it 'should fail' do
           expect { should }.
-            to raise_error(Puppet::Error, /version 4 not supported on RedHat 6/)
+            to raise_error(Puppet::Error, /API version 4 is not supported on RedHat 6/)
         end
       end
     end # el6
@@ -43,6 +43,7 @@ describe 'zeromq', :type => :class do
 
   context 'on osfamily Debian' do
     # debian sid has 3.x packages (not manually tested)
+    #  - http://zeromq.org/distro:debian
     # debian wheezy has 2.2 packages named: libzmq1, libzmq-dev, libzmq-dbg
     # debian squeeze does not include zeromq
     context 'sid' do
@@ -65,7 +66,7 @@ describe 'zeromq', :type => :class do
 
         it 'should fail' do
           expect { should }.
-            to raise_error(Puppet::Error, /version 4 not supported on Debian sid/)
+            to raise_error(Puppet::Error, /API version 4 is not supported on Debian sid/)
         end
       end
     end # sid
@@ -100,19 +101,19 @@ describe 'zeromq', :type => :class do
     # [-P-] [  ] net-libs/zeromq-4.0.1-r1:0
 
     context 'no params' do
-      it { should contain_package('<net-libs/zeromq-4') }
+      it { should contain_package('=net-libs/zeromq-3*') }
     end
 
     context 'version => 3' do
       let(:params) {{ :version => '3' }}
 
-      it { should contain_package('<net-libs/zeromq-4') }
+      it { should contain_package('=net-libs/zeromq-3*') }
     end
 
     context 'version => 4' do
       let(:params) {{ :version => '4' }}
 
-      it { should contain_package('>=net-libs/zeromq-4') }
+      it { should contain_package('=net-libs/zeromq-4*') }
     end
   end # on osfamily Gentoo
 
