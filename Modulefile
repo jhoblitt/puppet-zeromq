@@ -1,10 +1,10 @@
 name    'jhoblitt-zeromq'
-version '0.0.1'
+version '0.1.0'
 
 author 'Joshua Hoblitt <jhoblitt@cpan.org>'
 license 'Apache'
 project_page 'https://github.com/jhoblitt/puppet-zeromq'
 source 'https://github.com/jhoblitt/puppet-zeromq.git'
-summary 'module skeleton'
-description 'module skeleton'
+summary 'Manages the zeromq package(s)'
+description 'Manages the `zeromq` package(s)'
 dependency 'puppetlabs/stdlib', '>= 3.0.0'
