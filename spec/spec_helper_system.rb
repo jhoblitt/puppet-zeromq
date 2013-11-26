@@ -24,5 +24,7 @@ RSpec.configure do |c|
     # Install modules and dependencies
     puppet_module_install(:source => proj_root, :module_name => 'zeromq')
     shell('puppet module install puppetlabs-stdlib')
+    # XXX only needed for EL
+    shell('puppet module install stahnma-epel')
   end
 end

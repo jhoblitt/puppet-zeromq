@@ -2,17 +2,28 @@ require 'spec_helper_system'
 
 describe 'zeromq class' do
   case node.facts['osfamily']
-  when 'RedHat', 'Debian'
-    package_name = 'zeromq'
-    service_name = 'zeromq'
+  when 'RedHat'
+    package_name = ['zeromq3', 'zeromq3-devel']
+    pp = <<-EOS
+      Class['epel'] -> Class['zeromq']
+      include epel
+      include zeromq
+    EOS
+  when 'Debian'
+    package_name = ['libzmq3', 'libzmq3-dev']
+    pp = <<-EOS
+      include zeromq
+    EOS
+  when 'Gentoo'
+    package_name = '=net-libs/zeromq-3*'
+    pp = <<-EOS
+      include zeromq
+    EOS
   end
 
   describe 'running puppet code' do
     # Using puppet_apply as a helper
     it 'should work with no errors' do
-      pp = <<-EOS
-        class { 'zeromq': }
-      EOS
 
       # Run it twice and test for idempotency
       puppet_apply(pp) do |r|
@@ -23,12 +34,9 @@ describe 'zeromq class' do
     end
   end
 
-  describe package(package_name) do
-    it { should be_installed }
-  end
-
-  describe service(service_name) do
-    it { should be_running }
-    it { should be_enabled }
+  package_name.each do |pkg|
+    describe package(pkg) do
+      it { should be_installed }
+    end
   end
 end
