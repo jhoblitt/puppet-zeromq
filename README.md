@@ -24,10 +24,10 @@ Description
 -----------
 
 This module will install the [`zeromq`](http://zeromq.org/) library and header
-packages.  Only operating systems that have packages for at least `zermq`
+packages.  Only operating systems that have packages for at least the `zermq`
 version 3+ API are supported. Version 3 packages will be installed by default
-but if your operating system has version 4 package(s), they may optionally
-specified
+but if your operating system has version 4 package(s), they may optionally be
+specified.
 
 
 Usage
@@ -58,12 +58,14 @@ class { 'zeromq':
 
 ### `$osfamily == RedHat` considerations
 
-The el6.x packages are provided by EPEL6 but this module does not configure not
-have a dependency on a module that will configure a EPEL6 yumrepo.  This is
+The el6.x packages are provided by EPEL6 but this module does not configure nor
+have a dependency on a module that will configure a EPEL6 yumrepo.  This is to
 avoid potentially conflicting with a local yumrepo configuration, which is
-fairly common.
+fairly common for sites that have more than a hand full of nodes.
 
-If you do not have a local site setup, the [`stahnma/epel`](https://forge.puppetlabs.com/stahnma/epel) module is a good option for configuring EPEL6.
+If you do not have a local site setup, the
+[`stahnma/epel`](https://forge.puppetlabs.com/stahnma/epel) module is a good
+option for configuring EPEL6.
 
 You will likely want to declare resource ordering in your catalog to ensure
 that the EPEL6 repo is configured *before* this module in the catalog. Eg:
@@ -74,11 +76,10 @@ include zeromq
 ```
 
 
-
 Limitations
 -----------
 
-This module presently aims to support these operatingsystems:
+This module presently aims to support these operating systems:
 
 * RedHat
   - 6
