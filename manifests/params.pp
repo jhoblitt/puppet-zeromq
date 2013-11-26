@@ -33,9 +33,11 @@ class zeromq::params {
       }
     }
     'Gentoo': {
-      $os_id           = $::osfamily
-      $zeromq3_package = '=net-libs/zeromq-3*'
-      $zeromq4_package = '=net-libs/zeromq-4*'
+      $os_id                   = $::osfamily
+      $zeromq3_package         = 'net-libs/zeromq'
+      $zeromq4_package         = $zeromq3_package
+      $zeromq3_package_version = '3*'
+      $zeromq4_package_version = '4*'
     }
     default: {
       fail("Module ${module_name} is not supported on ${::osfamily}")

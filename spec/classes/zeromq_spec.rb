@@ -10,15 +10,15 @@ describe 'zeromq', :type => :class do
       let(:facts) {{ :osfamily => 'RedHat', :operatingsystemmajrelease => '6' }}
 
       context 'no params' do
-        it { should contain_package('zeromq3') }
-        it { should contain_package('zeromq3-devel') }
+        it { should contain_package('zeromq3').with_ensure('present') }
+        it { should contain_package('zeromq3-devel').with_ensure('present') }
       end
 
       context 'version => 3' do
         let(:params) {{ :version => '3' }}
 
-        it { should contain_package('zeromq3') }
-        it { should contain_package('zeromq3-devel') }
+        it { should contain_package('zeromq3').with_ensure('present') }
+        it { should contain_package('zeromq3-devel').with_ensure('present') }
       end
 
       context 'version => 4' do
@@ -50,15 +50,15 @@ describe 'zeromq', :type => :class do
       let(:facts) {{ :osfamily => 'Debian', :lsbdistcodename => 'sid' }}
 
       context 'no params' do
-        it { should contain_package('libzmq3') }
-        it { should contain_package('libzmq3-dev') }
+        it { should contain_package('libzmq3').with_ensure('present') }
+        it { should contain_package('libzmq3-dev').with_ensure('present') }
       end
 
       context 'version => 3' do
         let(:params) {{ :version => '3' }}
 
-        it { should contain_package('libzmq3') }
-        it { should contain_package('libzmq3-dev') }
+        it { should contain_package('libzmq3').with_ensure('present') }
+        it { should contain_package('libzmq3-dev').with_ensure('present') }
       end
 
       context 'version => 4' do
@@ -101,19 +101,19 @@ describe 'zeromq', :type => :class do
     # [-P-] [  ] net-libs/zeromq-4.0.1-r1:0
 
     context 'no params' do
-      it { should contain_package('=net-libs/zeromq-3*') }
+      it { should contain_package('net-libs/zeromq').with_ensure('3*') }
     end
 
     context 'version => 3' do
       let(:params) {{ :version => '3' }}
 
-      it { should contain_package('=net-libs/zeromq-3*') }
+      it { should contain_package('net-libs/zeromq').with_ensure('3*') }
     end
 
     context 'version => 4' do
       let(:params) {{ :version => '4' }}
 
-      it { should contain_package('=net-libs/zeromq-4*') }
+      it { should contain_package('net-libs/zeromq').with_ensure('4*') }
     end
   end # on osfamily Gentoo
 
