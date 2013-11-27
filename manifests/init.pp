@@ -29,7 +29,9 @@ class zeromq(
     default => $package_version,
   }
 
+  anchor { 'zeromq::begin': } ->
   package { $package_name:
     ensure => $package_ensure,
-  }
+  } ->
+  anchor { 'zeromq::end': }
 }
