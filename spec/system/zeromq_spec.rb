@@ -15,7 +15,7 @@ describe 'zeromq class' do
       include zeromq
     EOS
   when 'Gentoo'
-    package_name = '=net-libs/zeromq-3*'
+    package_name = 'net-libs/zeromq'
     pp = <<-EOS
       include zeromq
     EOS
