@@ -14,6 +14,7 @@ class zeromq::params {
       case $::operatingsystemmajrelease {
         6: {
           $zeromq3_package_name = [ 'zeromq3', 'zeromq3-devel' ]
+          $czmq_package_name    = [ 'czmq', 'czmq-devel' ]
         }
         default: {
           fail("Module ${module_name} is not supported on ${os_id}")
@@ -21,6 +22,7 @@ class zeromq::params {
       }
     }
     'Debian': {
+      # czmq does not appear to be packaged for Debian yet
       $os_id = "${::osfamily} ${::lsbdistcodename}"
 
       case $::lsbdistcodename {
@@ -38,6 +40,7 @@ class zeromq::params {
       $zeromq4_package_name    = $zeromq3_package_name
       $zeromq3_package_version = '3*'
       $zeromq4_package_version = '4*'
+      $czmq_package_name       = 'net-libs/czmq'
     }
     default: {
       fail("Module ${module_name} is not supported on ${::osfamily}")
