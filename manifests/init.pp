@@ -14,22 +14,22 @@ class zeromq(
 ) inherits zeromq::params {
   validate_string($version)
 
-  $zeromq_package         = getvar("zeromq::params::zeromq${version}_package")
-  $zeromq_package_version = getvar("zeromq::params::zeromq${version}_package_version")
-  $os_id                  = $zeromq::params::os_id
+  $package_name    = getvar("zeromq::params::zeromq${version}_package_name")
+  $package_version = getvar("zeromq::params::zeromq${version}_package_version")
+  $os_id           = $zeromq::params::os_id
 
-  if $zeromq_package == undef {
+  if $package_name == undef {
     fail("zeromq API version ${version} is not supported on ${os_id}")
   }
 
   # Not all platforms encode the API version of the zermq package in the
   # package's name, some (Gentoo) need to use an explict version string.
-  $package_ensure = $zeromq_package_version ? {
+  $package_ensure = $package_version ? {
     undef   => 'present',
-    default => $zeromq_package_version,
+    default => $package_version,
   }
 
-  package { $zeromq_package:
+  package { $package_name:
     ensure => $package_ensure,
   }
 }

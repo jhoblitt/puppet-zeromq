@@ -13,7 +13,7 @@ class zeromq::params {
 
       case $::operatingsystemmajrelease {
         6: {
-          $zeromq3_package = [ 'zeromq3', 'zeromq3-devel' ]
+          $zeromq3_package_name = [ 'zeromq3', 'zeromq3-devel' ]
         }
         default: {
           fail("Module ${module_name} is not supported on ${os_id}")
@@ -25,7 +25,7 @@ class zeromq::params {
 
       case $::lsbdistcodename {
         'sid': {
-          $zeromq3_package = [ 'libzmq3', 'libzmq3-dev' ]
+          $zeromq3_package_name = [ 'libzmq3', 'libzmq3-dev' ]
         }
         default: {
           fail("Module ${module_name} is not supported on ${os_id}")
@@ -34,8 +34,8 @@ class zeromq::params {
     }
     'Gentoo': {
       $os_id                   = $::osfamily
-      $zeromq3_package         = 'net-libs/zeromq'
-      $zeromq4_package         = $zeromq3_package
+      $zeromq3_package_name    = 'net-libs/zeromq'
+      $zeromq4_package_name    = $zeromq3_package_name
       $zeromq3_package_version = '3*'
       $zeromq4_package_version = '4*'
     }
