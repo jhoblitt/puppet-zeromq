@@ -48,6 +48,7 @@ include zeromq
 ```puppet
 # includes zeromq for you
 include zeromq::czmq
+```
 
 ### `zeromq`
 
