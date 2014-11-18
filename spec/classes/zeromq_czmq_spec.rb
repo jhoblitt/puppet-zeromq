@@ -7,7 +7,7 @@ describe 'zeromq::czmq', :type => :class do
       let(:facts) {{ :osfamily => 'RedHat', :operatingsystemmajrelease => '6' }}
 
       context 'no params' do
-        it { should include_class('zeromq') }
+        it { should contain_class('zeromq') }
         it { should contain_package('czmq').with_ensure('present') }
         it { should contain_package('czmq-devel').with_ensure('present') }
       end
@@ -27,7 +27,7 @@ describe 'zeromq::czmq', :type => :class do
     let(:facts) {{ :osfamily => 'Gentoo' }}
 
     context 'no params' do
-      it { should include_class('zeromq') }
+      it { should contain_class('zeromq') }
       it { should contain_package('net-libs/czmq').with_ensure('present') }
     end
   end # on osfamily Gentoo
