@@ -25,8 +25,7 @@ describe 'zeromq', :type => :class do
         let(:params) {{ :version => '4' }}
 
         it 'should fail' do
-          expect { should }.
-            to raise_error(Puppet::Error, /API version 4 is not supported on RedHat 6/)
+          should raise_error(Puppet::Error, /API version 4 is not supported on RedHat 6/)
         end
       end
 
@@ -35,8 +34,7 @@ describe 'zeromq', :type => :class do
         let(:params) {{ :version => false }}
 
         it 'should fail' do
-          expect { should }.
-            to raise_error(Puppet::Error, /is not a string/)
+          should raise_error(Puppet::Error, /is not a string/)
         end
       end
 
@@ -46,8 +44,7 @@ describe 'zeromq', :type => :class do
       let(:facts) {{ :osfamily => 'RedHat', :operatingsystemmajrelease => '5' }}
 
       it 'should fail' do
-        expect { should }.
-          to raise_error(Puppet::Error, /not supported on RedHat 5/)
+        should raise_error(Puppet::Error, /not supported on RedHat 5/)
       end
     end # el5
   end # on osfamily RedHat
@@ -76,8 +73,7 @@ describe 'zeromq', :type => :class do
         let(:params) {{ :version => '4' }}
 
         it 'should fail' do
-          expect { should }.
-            to raise_error(Puppet::Error, /API version 4 is not supported on Debian sid/)
+          should raise_error(Puppet::Error, /API version 4 is not supported on Debian sid/)
         end
       end
     end # sid
@@ -86,8 +82,7 @@ describe 'zeromq', :type => :class do
       let(:facts) {{ :osfamily => 'Debian', :lsbdistcodename => 'wheezy' }}
 
       it 'should fail' do
-        expect { should }.
-          to raise_error(Puppet::Error, /not supported on Debian wheezy/)
+        should raise_error(Puppet::Error, /not supported on Debian wheezy/)
       end
     end # wheezy
 
@@ -95,8 +90,7 @@ describe 'zeromq', :type => :class do
       let(:facts) {{ :osfamily => 'Debian', :lsbdistcodename => 'squeeze' }}
 
       it 'should fail' do
-        expect { should }.
-          to raise_error(Puppet::Error, /not supported on Debian squeeze/)
+        should raise_error(Puppet::Error, /not supported on Debian squeeze/)
       end
     end # squeeze
   end # on osfamily Debian
@@ -132,8 +126,7 @@ describe 'zeromq', :type => :class do
     let(:facts) {{ :osfamily => 'Solaris' }}
 
     it 'should fail' do
-      expect { should }.
-        to raise_error(Puppet::Error, /not supported on Solaris/)
+      should raise_error(Puppet::Error, /not supported on Solaris/)
     end
   end # on an unsupported osfamily
 
