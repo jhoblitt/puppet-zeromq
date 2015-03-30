@@ -7,3 +7,5 @@ Gemfile.lock
 *.patch
 .rspec_system/
 *.swp
+.vagrant
+log/
