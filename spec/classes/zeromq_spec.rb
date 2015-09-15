@@ -3,8 +3,33 @@ require 'spec_helper'
 describe 'zeromq', :type => :class do
 
   context 'on osfamily RedHat' do
+    # epel7 provides 3.2.5 & 4.0.5
     # epel6 provides 3.2.4
     # epel5 provides 2.1.9
+
+    context 'el7' do
+      let(:facts) {{ :osfamily => 'RedHat', :operatingsystemmajrelease => '7' }}
+
+      context 'no params' do
+        it { should contain_package('zeromq3').with_ensure('present') }
+        it { should contain_package('zeromq3-devel').with_ensure('present') }
+      end
+
+      context 'version => 3' do
+        let(:params) {{ :version => '3' }}
+
+        it { should contain_package('zeromq3').with_ensure('present') }
+        it { should contain_package('zeromq3-devel').with_ensure('present') }
+      end
+
+      context 'version => 4' do
+        let(:params) {{ :version => '4' }}
+
+        it { should contain_package('zeromq').with_ensure('present') }
+        it { should contain_package('zeromq-devel').with_ensure('present') }
+      end
+
+    end # el7
 
     context 'el6' do
       let(:facts) {{ :osfamily => 'RedHat', :operatingsystemmajrelease => '6' }}

@@ -3,6 +3,16 @@ require 'spec_helper'
 describe 'zeromq::czmq', :type => :class do
 
   context 'on osfamily RedHat' do
+    context 'el7' do
+      let(:facts) {{ :osfamily => 'RedHat', :operatingsystemmajrelease => '7' }}
+
+      context 'no params' do
+        it { should contain_class('zeromq') }
+        it { should contain_package('czmq').with_ensure('present') }
+        it { should contain_package('czmq-devel').with_ensure('present') }
+      end
+    end # el7
+
     context 'el6' do
       let(:facts) {{ :osfamily => 'RedHat', :operatingsystemmajrelease => '6' }}
 
