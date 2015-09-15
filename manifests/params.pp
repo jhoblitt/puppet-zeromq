@@ -16,6 +16,11 @@ class zeromq::params {
           $zeromq3_package_name = [ 'zeromq3', 'zeromq3-devel' ]
           $czmq_package_name    = [ 'czmq', 'czmq-devel' ]
         }
+        7: {
+          $zeromq3_package_name = [ 'zeromq3', 'zeromq3-devel' ]
+          $zeromq4_package_name = [ 'zeromq', 'zeromq-devel' ]
+          $czmq_package_name    = [ 'czmq', 'czmq-devel' ]
+        }
         default: {
           fail("Module ${module_name} is not supported on ${os_id}")
         }

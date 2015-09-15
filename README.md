@@ -70,7 +70,7 @@ class { 'zeromq':
 
     Controls which set of `zeromq` packages for major API `version` is
     installed.  At present, `version => 4` (or any version value other than 3)
-    is only supported on Gentoo.
+    is only supported on Gentoo & RedHat 7 (and clones).
 
 #### `$osfamily == RedHat` considerations
 
@@ -91,6 +91,8 @@ Class['epel'] -> Class['zeromq']
 include epel
 include zeromq
 ```
+
+The same considerations apply to Red Hat 7 & EPEL7.
 
 ### `zeromq::czmq`
 
@@ -130,6 +132,7 @@ This module presently aims to support these operating systems:
 
 * RedHat
   - 6
+  - 7
 * Debian
   - sid
 * Gentoo
