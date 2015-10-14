@@ -1,6 +1,6 @@
 {
   "name": "jhoblitt-zeromq",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "author": "Joshua Hoblitt <jhoblitt@cpan.org>",
   "summary": "Manages the zeromq and czmq packages",
   "license": "Apache-2.0",
@@ -8,13 +8,44 @@
   "project_page": "https://github.com/jhoblitt/puppet-zeromq",
   "issues_url": "https://github.com/jhoblitt/puppet-zeromq/issues",
   "operatingsystem_support": [
-    { "operatingsystem": "RedHat", "operatingsystemrelease": [ "6", "7" ] },
-    { "operatingsystem": "CentOS", "operatingsystemrelease": [ "6", "7" ] },
-    { "operatingsystem": "Scientific", "operatingsystemrelease": [ "6", "7" ] },
-    { "operatingsystem": "Debian", "operatingsystemrelease": [ "6" ] },
-    { "operatingsystem": "Gentoo", "operatingsystemrelease": [ "13" ] }
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Scientific",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "6"
+      ]
+    },
+    {
+      "operatingsystem": "Gentoo",
+      "operatingsystemrelease": [
+        "13"
+      ]
+    }
   ],
   "dependencies": [
-    { "name": "puppetlabs/stdlib", "version_requirement": ">= 4.6.0 < 5.0.0" }
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.6.0 < 5.0.0"
+    }
   ]
 }
