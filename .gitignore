@@ -2,8 +2,11 @@ pkg/
 spec/fixtures/modules/
 spec/fixtures/manifests/
 Gemfile.lock
+junit/
+log/
 *.orig
 *.rej
 *.patch
 .rspec_system/
 *.swp
+.vagrant

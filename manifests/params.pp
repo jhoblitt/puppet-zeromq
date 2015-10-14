@@ -5,14 +5,14 @@
 #
 #
 class zeromq::params {
-  $default_version = 3
+  $default_version = '3'
 
   case $::osfamily {
     'RedHat': {
       $os_id = "${::osfamily} ${::operatingsystemmajrelease}"
 
       case $::operatingsystemmajrelease {
-        6: {
+        '6': {
           $zeromq3_package_name = [ 'zeromq3', 'zeromq3-devel' ]
           $czmq_package_name    = [ 'czmq', 'czmq-devel' ]
         }
